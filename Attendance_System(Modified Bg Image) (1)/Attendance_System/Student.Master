@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Student.master.cs" Inherits="Attendance_System.Student1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <script type="" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css"/>
+
+    <script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            dateFormat: 'yy-mm',
+            onClose: function (dateText, inst) {
+                var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+                var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                $(this).datepicker('setDate', new Date(year, month, 1));
+            }
+        });
+    });
+    </script>
+
+    <style type="">
+    .ui-datepicker-calendar {
+        display: none;
+    }
+</style>
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <table align="center">
+                <tr style="width: 1200px; color: Aqua; height: 150px">
+                    <td>
+                        <asp:Image ID="Image1" runat="server" BorderColor="#666666" BorderWidth="3px"
+                            Height="150px" ImageUrl="~/Images/A_Logo.jpg" Width="1200px" />
+                    </td>
+                </tr>
+                <tr style="border-width: 8px; border-color: #666666; width: 1200px; color: #666666; height: 60px"
+                    bgcolor="#c547ff">
+                    <td>
+                        <table align="center" cellpadding="8">
+                            <tr style="border-color: #666666;">
+                                <td>
+                                    <asp:Button ID="btnHome" runat="server" Text="Home Page" Height="49px"
+                                        Width="171px" Font-Bold="True" Font-Size="Medium"
+                                        CausesValidation="False" BorderColor="#666666" BackColor="Snow" OnClick="btnHome_Click" />
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <asp:Button ID="btnAttendance" runat="server" Text="Attendance" Height="49px"
+                                        Width="171px" Font-Bold="True" Font-Size="Medium"
+                                        CausesValidation="False" BorderColor="#666666" BackColor="White" OnClick="btnAttendance_Click" />
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td>
+                                    <asp:Button ID="btnLogout" runat="server" Text="Logout" Height="49" Width="171"
+                                        Font-Size="Medium" Font-Bold="True"
+                                        CausesValidation="False" BorderColor="#666666" BackColor="White" OnClick="btnLogout_Click" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <table align="center" width="1200">
+                <tr style="width: 1200px; color: Gray; height: 20px;" bgcolor="Gray">
+                    <td style="width: 1100px; height: 25px; background-color: Gray; text-align: center; color: White">&copy
+                    <asp:Label ID="Label1" runat="server" Text="Attendance System"
+                        ForeColor="White" Font-Size="Medium" Font-Bold="True"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </form>
+</body>
+</html>

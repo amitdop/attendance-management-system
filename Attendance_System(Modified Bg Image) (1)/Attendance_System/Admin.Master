@@ -1,0 +1,133 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Attendance_System.Admin" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Admin Dashboard</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background-color: #4b0082;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            gap: 15px;
+        }
+
+        .nav-bar .nav-button {
+            background-color: #6a0dad;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        .nav-bar .nav-button:hover {
+            background-color: #9b30ff;
+        }
+
+        /* Main content */
+        .content {
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            background-color: #2c2c2c;
+            color: white;
+            padding: 15px 0;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-bar .nav-button {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .content {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>Admin Dashboard</h1>
+            <!-- Optional space for user info or logout -->
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <asp:Button ID="Course" runat="server" Text="Course" CssClass="nav-button" OnClick="Course_Click" />
+            <asp:Button ID="Subject" runat="server" Text="Subject" CssClass="nav-button" OnClick="Subject_Click" />
+            <asp:Button ID="Teacher" runat="server" Text="Teachers" CssClass="nav-button" OnClick="Teacher_Click" />
+            <asp:Button ID="TeacherSubject" runat="server" Text="Assign Subject" CssClass="nav-button" OnClick="TeacherSubject_Click" />
+            <asp:Button ID="Student" runat="server" Text="Student" CssClass="nav-button" OnClick="Student_Click" />
+            <asp:Button ID="Logout" runat="server" Text="Logout" CssClass="nav-button" OnClick="Logout_Click" />
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            &copy; <asp:Label ID="Label1" runat="server" Text="Attendance System"></asp:Label>
+        </div>
+
+    </form>
+</body>
+</html>
